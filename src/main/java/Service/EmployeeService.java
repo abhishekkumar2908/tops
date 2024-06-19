@@ -32,17 +32,17 @@ public class EmployeeService {
 
     public Employee updateEmployee(String id, Employee updatedEmployee) {
         // Retrieve the existing employee by ID
-        Employee existingEmployee = employeeRepository.findById(id)
+        Employee getEmpFormDocDb = employeeRepository.findById(id)
                 .orElseThrow(() -> new IllegalArgumentException("Employee not found with id: " + id));
 
         // Update fields that are allowed to be updated
-        existingEmployee.setFirstName(updatedEmployee.getFirstName());
-        existingEmployee.setLastName(updatedEmployee.getLastName());
-        existingEmployee.setEmail(updatedEmployee.getEmail());
-        existingEmployee.setDepartment(updatedEmployee.getDepartment());
+        getEmpFormDocDb.setFirstName(updatedEmployee.getFirstName());
+        getEmpFormDocDb.setLastName(updatedEmployee.getLastName());
+        getEmpFormDocDb.setEmail(updatedEmployee.getEmail());
+        getEmpFormDocDb.setDepartment(updatedEmployee.getDepartment());
 
         // Save and return the updated employee
-        return employeeRepository.save(existingEmployee);
+        return employeeRepository.save(getEmpFormDocDb);
     }
 
 
